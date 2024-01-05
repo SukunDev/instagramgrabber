@@ -12,6 +12,12 @@ def instagram_instance():
     password = os.environ.get("IG_PASSWORD", None)
     return Instagram(username=username, password=password)
 
+@pytest.mark.parametrize("expected_username", [(os.environ.get("IG_USERNAME", None))])
+def test_login(instagram_instance, expected_username):
+    user = instagram_instance.login()
+    assert user['username'] == expected_username
+
+
 @pytest.mark.parametrize("expected_username", [
     ("admin_jejaka"),
     ("lutfiainun125"),
