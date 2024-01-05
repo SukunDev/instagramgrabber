@@ -1,0 +1,16 @@
+# Common virtural environments
+.venv
+.env
+
+#base code
+main.py
+
+# python cache
+*__pycache__/
+
+# Distribution / packaging
+build
+*.egg-info
+
+# test
+.pytest_cache/
