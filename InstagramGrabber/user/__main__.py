@@ -70,7 +70,7 @@ class User:
         try:
             self._username = self.__user_meta_data["username"]
         except KeyError:
-            raise exceptions.InstagramException( f'Exception while accessing username of {self._username}. ')  
+            raise exceptions.InstagramException( f'Exception while accessing username of {self._username}.')  
         return self._username
 
     @username.setter

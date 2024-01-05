@@ -1,6 +1,7 @@
 # Common virtural environments
-.venv
+.venv/
 .env
+.pypirc
 
 #base code
 main.py
@@ -9,8 +10,10 @@ main.py
 *__pycache__/
 
 # Distribution / packaging
-build
-*.egg-info
+build/
+*.egg-info/
+dist/
 
 # test
 .pytest_cache/
+
