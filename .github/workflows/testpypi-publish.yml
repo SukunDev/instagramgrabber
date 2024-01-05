@@ -3,7 +3,6 @@ name: Upload Python Package to testPyPi
 on:
   release:
     types: [created]
-  workflow_dispatch:
 
 jobs:
   deploy:
