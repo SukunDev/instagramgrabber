@@ -8,7 +8,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 setuptools.setup(
     name="InstagramGrabber",
     packages=setuptools.find_packages(),
-    version="0.0.1",
+    version="1.0.0",
     license="MIT",
     description="Simple project to grab instagram info",
     author="SukunDev",
