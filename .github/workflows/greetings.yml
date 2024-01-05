@@ -1,0 +1,12 @@
+name: Greetings
+
+on: [issues]
+
+jobs:
+  greeting:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/first-interaction@v1
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          issue-message: "Thank you for contributing to InstagramGrabber. Please remember to reference [Contributing.md](https://github.com/SukunDev/instagramgrabber/blob/main/CONTRIBUTING.md)"
