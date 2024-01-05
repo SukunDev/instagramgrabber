@@ -22,7 +22,7 @@ setuptools.setup(
     keywords=["instagram", "instagram-grabber", "instagram grabber", "python3", "api", "instagram api"],
     install_requires=["requests"],
     classifiers=[
-        "Development Status :: 4 - Beta",
+        "Development Status :: 3 - Alpha",
         "Intended Audience :: Developers",
         "Topic :: Software Development :: Build Tools",
         "License :: OSI Approved :: MIT License",
