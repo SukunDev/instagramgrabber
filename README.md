@@ -14,10 +14,18 @@ InstagramGrabber adalah modul Python yang memungkinkan pengembang mengakses dan 
 
 ## Installation
 
+### Using Git
+
 ```bash
 git clone https://github.com/SukunDev/instagramgrabber.git
 cd instagramgrabber
 python -m setup.py install
+```
+
+### Using PIP
+
+```bash
+pip install InstagramGrabber
 ```
 
 ## Usage
