@@ -100,33 +100,7 @@ def extract_all_media(items) -> Dict:
             "product_type": product_type,
             "caption": captions,
         }
-        if product_type == "feed":
-            choose_media = get_best_quality(media["image_versions2"]["candidates"])
-            thumbnail = choose_media["url"]
-            choose_media.update({"thumbnail": thumbnail, "type": "image"})
-            result.update({
-                "media": choose_media
-            })
-        elif product_type == "clips":
-            choose_media = get_best_quality(media["video_versions"])
-            thumbnail = get_best_quality(media["image_versions2"]["candidates"])["url"]
-            choose_media.update({"thumbnail": thumbnail, "type": "video"})
-            result.update({
-                "media": choose_media
-            })
-        elif product_type == "story":
-            try:
-                choose_media = get_best_quality(media["video_versions"])
-                thumbnail = get_best_quality(media["image_versions2"]["candidates"])["url"]
-                choose_media.update({"thumbnail": thumbnail, "type": "video"})
-            except KeyError:
-                choose_media = get_best_quality(media["image_versions2"]["candidates"])
-                thumbnail = choose_media["url"]
-                choose_media.update({"thumbnail": thumbnail, "type": "image"})
-            result.update({
-                "media": choose_media
-            })
-        elif product_type == "carousel_container":
+        if product_type == "carousel_container":
             carousel_media = []
             for carousel in media["carousel_media"]:
                 try:
@@ -135,8 +109,7 @@ def extract_all_media(items) -> Dict:
                     choose_media.update({"thumbnail": thumbnail, "type": "video"})
                 except KeyError:
                     choose_media = get_best_quality(carousel["image_versions2"]["candidates"])
-                    thumbnail = choose_media["url"]
-                    choose_media.update({"thumbnail": thumbnail, "type": "image"})
+                    choose_media.update({"type": "image"})
                 carousel_media.append({
                     "media_id": carousel["pk"],
                     "product_type": carousel["product_type"],
@@ -148,10 +121,11 @@ def extract_all_media(items) -> Dict:
         else:
             try:
                 choose_media = get_best_quality(media["video_versions"])
+                thumbnail = get_best_quality(media["image_versions2"]["candidates"])["url"]
                 choose_media.update({"thumbnail": thumbnail, "type": "video"})
             except KeyError:
                 choose_media = get_best_quality(media["image_versions2"]["candidates"])
-                choose_media.update({"thumbnail": thumbnail, "type": "image"})
+                choose_media.update({"type": "image"})
             result.update({
                 "media": choose_media
             })
