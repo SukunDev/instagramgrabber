@@ -8,16 +8,16 @@ from InstagramGrabber import exceptions
 from typing import Any, Dict
 
 def save_cookies(cookies, cookies_name) -> None:
-    if not os.path.exists(f'./instagram_cookies/'):
-        os.makedirs(f'./instagram_cookies/')
-    with open(f'./instagram_cookies/{cookies_name}_cookies', 'wb') as f:
+    if not os.path.exists(os.path.join(os.getcwd(), "instagram_cookies")):
+        os.makedirs(os.path.join(os.getcwd(), "instagram_cookies"))
+    with open(os.path.join(os.getcwd(), "instagram_cookies", f'{cookies_name}_cookies'), 'wb') as f:
         pickle.dump(cookies, f)
 
 def load_cookies(cookies_name) -> Any:
     try:
-        if not os.path.exists(f'./instagram_cookies/'):
-            os.makedirs(f'./instagram_cookies/')
-        with open(f'./instagram_cookies/{cookies_name}_cookies', 'rb') as f:
+        if not os.path.exists(os.path.join(os.getcwd(), "instagram_cookies")):
+            os.makedirs(os.path.join(os.getcwd(), "instagram_cookies"))
+        with open(os.path.join(os.getcwd(), "instagram_cookies", f'{cookies_name}_cookies'), 'rb') as f:
             cookies = pickle.load(f)
     except Exception as e:
         cookies = None

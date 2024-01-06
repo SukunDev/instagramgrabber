@@ -69,4 +69,6 @@ class Posts:
 
     @property
     def media(self) -> Media:
-        return Media(self.__media_meta_data["items"])
+        if len(self.__media_meta_data["items"]) > 1:
+            return Media(self.__media_meta_data["items"])
+        return None
