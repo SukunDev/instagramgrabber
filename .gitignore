@@ -17,6 +17,6 @@ dist/
 # test
 .pytest_cache/
 
-# cookies
-instagram_cookies/
+# temp
+.temp/
 

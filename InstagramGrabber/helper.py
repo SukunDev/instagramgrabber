@@ -3,34 +3,34 @@ import base64
 import json
 import os
 import re
-from urllib.parse import urlparse, unquote, urlunparse
+from urllib.parse import urlparse, urlunparse
 from InstagramGrabber import exceptions
 from typing import Any, Dict
 from uuid import uuid4
 
 
 def get_uuid() -> Dict:
-    if not os.path.exists(os.path.join(os.getcwd(), "InstagramGrabber", "uuid.json")):
-        with open(os.path.join(os.getcwd(), "InstagramGrabber","uuid.json"), "w") as f:
+    if not os.path.exists(os.path.join(os.getcwd(), ".temp", "uuid.json")):
+        with open(os.path.join(os.getcwd(), ".temp","uuid.json"), "w") as f:
             json.dump({
                 "device_id": str(uuid4()),
                 "phone_id": str(uuid4())
             }, f)
-    with open(os.path.join(os.getcwd(), "InstagramGrabber","uuid.json"), "r") as f:
+    with open(os.path.join(os.getcwd(), ".temp","uuid.json"), "r") as f:
         data = json.load(f)
     return data
 
 def save_cookies(cookies, cookies_name) -> None:
-    if not os.path.exists(os.path.join(os.getcwd(), "instagram_cookies")):
-        os.makedirs(os.path.join(os.getcwd(), "instagram_cookies"))
-    with open(os.path.join(os.getcwd(), "instagram_cookies", f'{cookies_name}_cookies'), 'wb') as f:
+    if not os.path.exists(os.path.join(os.getcwd(), ".temp")):
+        os.makedirs(os.path.join(os.getcwd(), ".temp"))
+    with open(os.path.join(os.getcwd(), ".temp", f'{cookies_name}_cookies'), 'wb') as f:
         pickle.dump(cookies, f)
 
 def load_cookies(cookies_name) -> Any:
     try:
-        if not os.path.exists(os.path.join(os.getcwd(), "instagram_cookies")):
-            os.makedirs(os.path.join(os.getcwd(), "instagram_cookies"))
-        with open(os.path.join(os.getcwd(), "instagram_cookies", f'{cookies_name}_cookies'), 'rb') as f:
+        if not os.path.exists(os.path.join(os.getcwd(), ".temp")):
+            os.makedirs(os.path.join(os.getcwd(), ".temp"))
+        with open(os.path.join(os.getcwd(), ".temp", f'{cookies_name}_cookies'), 'rb') as f:
             cookies = pickle.load(f)
     except Exception as e:
         cookies = None
