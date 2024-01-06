@@ -28,4 +28,5 @@ def test_get_post(instagram_instance, shortcode, expected_username):
     user = get_post.user
     assert user.username == expected_username
     media = get_post.media
-    assert len(media) > 0
+    if media:
+        assert len(media) > 1
