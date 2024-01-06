@@ -6,6 +6,19 @@ import re
 from urllib.parse import urlparse, unquote, urlunparse
 from InstagramGrabber import exceptions
 from typing import Any, Dict
+from uuid import uuid4
+
+
+def get_uuid() -> Dict:
+    if not os.path.exists(os.path.join(os.getcwd(), "InstagramGrabber", "uuid.json")):
+        with open(os.path.join(os.getcwd(), "InstagramGrabber","uuid.json"), "w") as f:
+            json.dump({
+                "device_id": str(uuid4()),
+                "phone_id": str(uuid4())
+            }, f)
+    with open(os.path.join(os.getcwd(), "InstagramGrabber","uuid.json"), "r") as f:
+        data = json.load(f)
+    return data
 
 def save_cookies(cookies, cookies_name) -> None:
     if not os.path.exists(os.path.join(os.getcwd(), "instagram_cookies")):

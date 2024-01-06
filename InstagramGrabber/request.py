@@ -1,5 +1,4 @@
 import requests
-from uuid import uuid4
 from InstagramGrabber import helper, exceptions
 
 def _excute(path, data=None, headers=None, cookies=None):
@@ -36,9 +35,9 @@ def _login(username, password):
             "username": username,
             "reg_login": "0",
             "enc_password": f"#PWD_INSTAGRAM:0:&:{password}",
-            "device_id": str(uuid4()),
+            "device_id": helper.get_uuid(),
             "login_attempt_count": "0",
-            "phone_id": str(uuid4())
+            "phone_id": helper.get_uuid()
     })
     if 'The password you entered is incorrect' in response.text:
         raise exceptions.InstagramError(f'Your password is incorrect')

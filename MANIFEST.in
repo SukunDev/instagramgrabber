@@ -1,2 +1,2 @@
 include README.md LICENSE
-exclude tests/*
+recursive-exclude tests *

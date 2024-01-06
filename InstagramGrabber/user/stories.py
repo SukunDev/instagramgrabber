@@ -35,6 +35,6 @@ class Stories:
 
     @property
     def media(self) -> Media:
-        if len(self.__stories_media_meta_data['reels']) > 1:
+        if len(self.__stories_media_meta_data['reels']) > 0:
             return Media(self.__stories_media_meta_data['reels'][self.__user_id]["items"])
         return None
