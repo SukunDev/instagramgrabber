@@ -8,9 +8,9 @@ jobs:
   Unit-Tests:
     runs-on: ubuntu-latest
     strategy:
+      fail-fast: true
       matrix:
         python: [3.7, 3.8, 3.9, 3.11]
-        fail-fast: true
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2
