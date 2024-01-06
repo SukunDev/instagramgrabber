@@ -48,7 +48,11 @@ def instagram_shortcode_to_media_id(code) -> int:
 
 def get_best_quality(data) -> Dict:
     best_image = max(data, key=lambda x: x["width"] * x["height"])
-    return best_image
+    return {
+        "width": best_image['width'],
+        "height": best_image['height'],
+        "url": best_image['url'],
+    }
 
 def extract_json(data) -> Dict:
     return json.loads(data)
@@ -122,6 +126,7 @@ def extract_all_media(items) -> Dict:
                     choose_media.update({"type": "image"})
                 carousel_media.append({
                     "media_id": carousel["pk"],
+                    "product_type": carousel["product_type"],
                     "media": choose_media,
                 })
             result.update({
