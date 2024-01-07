@@ -24,7 +24,7 @@ def _excute(path, data=None, headers=None, cookies=None):
 
 def _login(username, password):
     if username is None or password is None:
-        raise exceptions.InstagramError(f"username or password is None")
+        raise exceptions.InstagramException(f"username or password is None")
     response = requests.post(
         url=f'https://www.instagram.com/api/v1/accounts/login/', 
         headers={
@@ -40,7 +40,7 @@ def _login(username, password):
             "phone_id": helper.get_uuid()
     })
     if 'The password you entered is incorrect' in response.text:
-        raise exceptions.InstagramError(f'Your password is incorrect')
+        raise exceptions.InstagramException(f'Your password is incorrect')
     elif 'logged_in_user' in response.text:
         helper.save_cookies(response.cookies, cookies_name=username)
         return response

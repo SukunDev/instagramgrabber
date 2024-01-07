@@ -16,7 +16,7 @@ def get_uuid() -> Dict:
                 "device_id": str(uuid4()),
                 "phone_id": str(uuid4())
             }, f)
-    with open(os.path.join(os.getcwd(), ".temp","uuid.json"), "r") as f:
+    with open(os.path.join(os.getcwd(), ".temp","uuid.json"), "rb") as f:
         data = json.load(f)
     return data
 
@@ -41,7 +41,7 @@ def extract_shortcode_from_url(url) -> str:
     parsed_url = urlparse(remove_query_and_trailing_slash(url))
     path_segments = parsed_url.path.split('/')
     if len(path_segments) <= 2:
-        raise exceptions.InstagramError(f'can\'t find shortcode')
+        raise exceptions.InstagramException(f'can\'t find shortcode')
     return path_segments[2]
     
 def extract_username_from_url(url) -> str:
@@ -49,7 +49,7 @@ def extract_username_from_url(url) -> str:
     parsed_url = urlparse(remove_query_and_trailing_slash(url))
     path_segments = parsed_url.path.split('/')
     if len(path_segments) <= 1:
-        raise exceptions.InstagramError(f'invalid instagram URL {url}')
+        raise exceptions.InstagramException(f'invalid instagram URL {url}')
     
     return path_segments[1]
 
