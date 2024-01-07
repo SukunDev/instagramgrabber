@@ -33,10 +33,10 @@ class Instagram:
                 return res_data['logged_in_user']
         elif 'checkpoint_required' in response.text:
             res_data = helper.extract_json(response.text)
-            raise exceptions.InstagramError(f'check point detected, Please Visit {res_data["checkpoint_url"]}')
+            raise exceptions.InstagramException(f'check point detected, Please Visit {res_data["checkpoint_url"]}')
         else:
             res_data = helper.extract_json(response.text)
-            raise exceptions.InstagramError(res_data['message'])
+            raise exceptions.InstagramException(res_data['message'])
     
     def get_post(self, url: Optional[str] = None) -> Post:
         if not url:
