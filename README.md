@@ -1,5 +1,13 @@
 # InstagramGrabber
 
+<div align="center">
+  <p align="center">
+	<a href="https://pypi.org/project/InstagramGrabber/"><img src="https://img.shields.io/pypi/dm/InstagramGrabber?style=flat-square" alt="pypi"/></a>
+	<a href="https://pypi.org/project/InstagramGrabber/"><img src="https://img.shields.io/pypi/v/InstagramGrabber?style=flat-square" /></a>
+    <a class="reference external image-reference" href="https://pypi.python.org/pypi/InstagramGrabber/"><img alt="Python Versions" src="https://img.shields.io/pypi/pyversions/InstagramGrabber.svg"></a>
+  </p>
+</div>
+
 InstagramGrabber adalah modul Python yang memungkinkan pengembang mengakses dan mengambil data dari Instagram. Dengan fungsionalitas seperti mengunduh gambar, video, dan informasi profil pengguna, modul ini menyediakan solusi efektif untuk integrasi Instagram dalam proyek tanpa perlu mengakses API resmi. Memudahkan ekstraksi data, InstagramGrabber cocok untuk berbagai aplikasi dan skenario pengembangan perangkat lunak.
 
 ---
